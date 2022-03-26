@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import "./contact.css";
 import { MdOutlineEmail } from "react-icons/md";
@@ -6,6 +6,7 @@ import { RiMessengerLine } from "react-icons/ri";
 import { BsWhatsapp } from "react-icons/bs";
 const Contact = () => {
   const form = useRef();
+  const [sendSuccess, setSendSuccess] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -19,6 +20,7 @@ const Contact = () => {
       )
       .then(
         (result) => {
+          setSendSuccess(true);
           e.target.reset();
           console.log(result.text);
         },
@@ -27,6 +29,7 @@ const Contact = () => {
         }
       );
   };
+
   return (
     <section id="contact">
       <h5>Get in Touch</h5>
@@ -67,6 +70,7 @@ const Contact = () => {
           </article>
         </div>
         <form ref={form} onSubmit={sendEmail}>
+          {sendSuccess && <h5>Mail sent!</h5>}
           <input type="text" name="name" placeholder="Your Fullname" required />
           <input type="emai" name="email" placeholder="Your Email" required />
           <textarea
