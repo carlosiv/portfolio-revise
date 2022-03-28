@@ -1,9 +1,9 @@
 import React from "react";
 import "./portfolio.css";
-import todo from "../../assets/images/basic-todo.png";
-import todoDrag from "../../assets/images/todo-draggable.png";
-import weather from "../../assets/images/weather.png";
-import posts from "../../assets/images/posts.png";
+import todo from "../../assets/images/basic-todo.webp";
+import todoDrag from "../../assets/images/todo-draggable.webp";
+import weather from "../../assets/images/weather.webp";
+import posts from "../../assets/images/posts.webp";
 
 const Portfolio = () => {
   return (
